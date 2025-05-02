@@ -255,19 +255,6 @@ async def retrieve_context7_docs(ctx: RunContext[AgentDependencies], query: str,
         print(f"Error during documentation retrieval: {type(e).__name__}: {e}")
         # import traceback; traceback.print_exc() # Uncomment for detailed traceback
         return f"An error occurred while retrieving documentation: {type(e).__name__}"
-    
-# GraphTOOL → exposes the LangGraph workflow
-@context7_agent.tool
-async def context7_workflow(ctx: RunContext[AgentDependencies],
-                            question: str) -> str:
-    """
-    Run the multi‑step LangGraph workflow to answer complex questions.
-    Returns PEP‑8‑refined runnable code or an explanatory message.
-    """
-    # local import avoids the top‑level circular reference
-    from graph_workflow import run_workflow
-    print("[workflow invoked]")
-    return await run_workflow(question)
 
 
 # --- Helper function for graph integration ---
