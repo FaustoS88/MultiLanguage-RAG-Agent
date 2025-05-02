@@ -215,3 +215,10 @@ python db_inspect.py --delete-all
 - Context7 for providing the optimized documentation endpoints.   
 - Pydantic‑AI for the agent and tool framework.  
 - LangGraph for the orchestration engine powering the optional multi‑agent workflow.
+---
+
+## Contributing
+
+Contributions are welcome! Please open issues or submit pull requests for bug fixes, improvements, or new features.  
+Before contributing, ensure your code follows the existing style and includes appropriate tests.  
+By contributing, you agree that your contributions will be licensed under the MIT License.
