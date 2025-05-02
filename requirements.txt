@@ -1,0 +1,8 @@
+crawl4ai
+psycopg2-binary
+python-dotenv
+openai
+pydantic-ai
+asyncpg
+streamlit
+httpx
