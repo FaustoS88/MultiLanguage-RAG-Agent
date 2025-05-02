@@ -4,6 +4,15 @@ This project provides a comprehensive system for extracting, storing, and queryi
 
 ---
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/FaustoS88/MultiLanguage-RAG-Agent/main/assets/asset1.png" alt="Asset 1" width="400"></td>
+    <td><img src="https://raw.githubusercontent.com/FaustoS88/MultiLanguage-RAG-Agent/main/assets/asset2.png" alt="Asset 2" width="400"></td>
+  </tr>
+</table>
+
 ## Project Components
 
 ### 1. Documentation Extractor & Crawler
@@ -222,3 +231,5 @@ python db_inspect.py --delete-all
 Contributions are welcome! Please open issues or submit pull requests for bug fixes, improvements, or new features.  
 Before contributing, ensure your code follows the existing style and includes appropriate tests.  
 By contributing, you agree that your contributions will be licensed under the MIT License.
+
+---
