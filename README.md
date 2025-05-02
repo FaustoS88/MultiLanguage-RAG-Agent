@@ -11,6 +11,10 @@ This project provides a comprehensive system for extracting, storing, and queryi
     <td><img src="https://raw.githubusercontent.com/FaustoS88/MultiLanguage-RAG-Agent/main/assets/asset1.png" alt="Asset 1" width="400"></td>
     <td><img src="https://raw.githubusercontent.com/FaustoS88/MultiLanguage-RAG-Agent/main/assets/asset2.png" alt="Asset 2" width="400"></td>
   </tr>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/FaustoS88/MultiLanguage-RAG-Agent/main/assets/asset3.png" alt="Asset 1" width="400"></td>
+    <td><img src="https://raw.githubusercontent.com/FaustoS88/MultiLanguage-RAG-Agent/main/assets/asset4.png" alt="Asset 2" width="400"></td>
+  </tr>
 </table>
 
 ## Project Components
