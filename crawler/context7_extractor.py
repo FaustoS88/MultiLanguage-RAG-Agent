@@ -39,10 +39,56 @@ MAX_EMBEDDING_CHARS = 28000
 
 # --- Context7 Configuration ---
 # List of Context7 library IDs to fetch (Sorted Alphabetically)
-CONTEXT7_LIBRARY_IDS = sorted([      # amazon bedrock
+CONTEXT7_LIBRARY_IDS = sorted([
+    "/modelcontextprotocol/servers",              # MCP Server
+    "/modelcontextprotocol/modelcontextprotocol", # MCP Protocol
+    "/aws-samples/amazon-bedrock-samples",        # amazon bedrock
     "/themanojdesai/python-a2a",                  # a2a_python
     "/google/a2a",                                # google_a2a
+    "/angular/angular",                           # angular
+    "/unclecode/crawl4ai",                        # crawl4ai
+    "/tiangolo/fastapi",                          # fastapi
+    "/golang/go",                                 # Go
+    "/google-gemini/generative-ai-js",            # google gemini
+    "/googleapis/python-genai",                   # Google Gen AI Python SDK
+    "/jestjs/jest",                               # Jest
+    "/matplotlib/matplotlib",                     # matplotlib
+    "/nestjs/docs.nestjs.com",                    # nest.js & docs.nestjs.com
+    "/vercel/next.js",                            # next.js
+    "/vega/altair",                               # altair
+    "/python/cpython",                            # python
+    "/microsoftdocs/cpp-docs",                    # C++     
+    "/facebook/react",                            # react
+    "/solana-labs/solana",                        # solana
+    "/anza-xyz/solana-sdk",                       # solana sdk (Using general repo)
+    "/rust-lang/rust",                            # rust
+    "/ethereum/solidity",                         # solidity
+    "/tradingview/lightweight-charts",            # Trading_view 
+    "/arunkbhaskar/pinescript",                   # pinescript
+    "/quantconnect/documentation",                # QuantConnect
+    "/quantconnect/research",
+    "/quantconnect/tutorials"
+    "/supabase/supabase",                         # supabase
+    "/microsoft/TypeScript",                      # typescript
+    "/upstash/context7",                          # Context7 MCP Server (so the rag knows how to use the docs)
+    "/web3/web3.js",                              # web3.js
+    "/ethereum/web3.py",                          # web3.py
     "/pydantic/pydantic-ai",                      # pydantic-ai
+    "/crewaiinc/crewai",                          # crew.ai
+    "/run-llama/llama_index",                     # llama_index
+    "/langchain-ai/langgraph",                    # langgraph
+    "/langfuse/langfuse-docs",                    # langfuse
+    "/langchain-ai/langchain",                    # langchain
+    "/huggingface/smolagents",                    # smolagents
+    "/scikit-learn/scikit-learn",                 # scikit-learn
+    "/pandas-dev/pandas",                         # pandas
+    "/numpy/numpy.org",                           # numpy
+    "/tensorflow/docs",                           # tensorflow
+    "/pytorch/pytorch",                           # pytorch
+    "/huggingface/transformers",                  # transformers
+    "/berriai/litellm",                           # litellm
+    "/hkuds/lightrag",                            # lightrag
+    "/getzep/graphiti",                           # graphiti
 ])
 # Base URL for Context7 library pages
 CONTEXT7_BASE_URL = "https://context7.com"
