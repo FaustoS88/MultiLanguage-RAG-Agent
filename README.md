@@ -36,13 +36,13 @@ Fetches documentation snippets from Context7 llms.txt endpoints, parses them, an
 Provides an AI assistant that answers user queries by retrieving relevant documentation snippets and generating answers or runnable code.
 
 **Key Files:**  
-- `context7_coder.py`: Core agent implementation handling environment setup, database connection, retrieval, and AI model integration.  
-- `agent_prompts.py`: Contains the system prompt guiding the agent's behavior and workflow.  
-- `context7_coder_chat.py`: Streamlit-based chat UI for interactive querying of the RAG agent with graph-aware capabilities.
+- `context7_agent.py`: Core agent implementation handling environment setup, database connection, retrieval, and AI model integration.  
+- `prompts.py`: Contains the system prompt guiding the agent's behavior and workflow.  
+- `context7_chat.py`: Streamlit-based chat UI for interactive querying of the RAG agent with graph-aware capabilities.
 
 **Graph-Aware Options:**  
-- `context7_agent_simple.py`: A standalone, simple CLI agent that runs without invoking the LangGraph workflow for fast, direct queries.  
-- `langgraph_context7_workflow.py`: An optional LangGraph workflow for multi-step planning, code generation, and refinement. This workflow is automatically invoked by the main agent when deeper reasoning or code execution is required.
+- `context7_agent_simple.py`: An optional standalone, simple CLI agent that runs without invoking the LangGraph workflow for fast, direct queries.  
+- `graph_workflow.py`: An LangGraph workflow for multi-step planning, code generation, and refinement. This workflow is automatically invoked by the main agent when deeper reasoning or code execution is required.
 
 ---
 
@@ -69,7 +69,7 @@ docker compose down
 ```bash
 docker compose up -d
 ```
-- Re-crawl with updated code
+- Re-crawl with updated documentation
 ```bash
 docker compose run --rm crawler
 ```
@@ -165,12 +165,6 @@ python context7_agent_simple.py "your question here"
 ```
 
 - **Graph-Aware CLI:** This version invokes a LangGraph workflow for multi-step reasoning, code generation, and refinement. You will see a `[workflow invoked]` message in the terminal when deeper processing is performed:
-
-```bash
-python context7_agent.py "your question here"
-```
-
-- **Single Query (graph-aware):**
 
 ```bash
 python context7_agent.py "your question here"
