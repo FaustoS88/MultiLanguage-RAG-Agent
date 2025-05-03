@@ -1,0 +1,70 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  init-db:
+    build:
+      context: .
+      target: init-db
+    env_file: .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    depends_on:
+      - db
+    command: python init_db.py
+    restart: "no"
+    volumes:
+      - .:/app
+
+  crawler:
+    build:
+      context: .
+      target: crawler
+    env_file: .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    depends_on:
+      - db
+    command: python crawler/context7_extractor.py
+    restart: "no"
+    volumes:
+      - .:/app
+      - /dev/null:/app/.env   # ensure only in-container vars used
+
+  app:
+    build:
+      context: .
+      target: app
+    env_file: .env
+    environment:
+      LANGGRAPH_LOG_LEVEL: DEBUG
+      DB_HOST: db
+      DB_PORT: 5432
+      DATABASE_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+    depends_on:
+      - db
+    ports:
+      - "8501:8501"
+    command: >
+      streamlit run context7_chat.py
+      --server.address=0.0.0.0
+      --server.port=8501
+      --server.headless=true
+    volumes:
+      - .:/app
+      - /dev/null:/app/.env
+
+volumes:
+  pgdata:

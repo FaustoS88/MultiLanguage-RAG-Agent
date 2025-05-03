@@ -48,16 +48,45 @@ Provides an AI assistant that answers user queries by retrieving relevant docume
 
 ## Setup Instructions
 
-### Dependencies
+### Docker Setup (easier)
 
-Install the required Python packages:
+### Environment Variables
 
+fill the env file & just run:
+
+```bash
+python docker.py
+```
+then open the streamlit at http://localhost:8501
+
+# Refresh db with new docs
+
+- stop the container with:
+```bash
+docker compose down  
+```
+- Bring Postgres back online
+```bash
+docker compose up -d
+```
+- Re-crawl with updated code
+```bash
+docker compose run --rm crawler
+```
+- Re-run the agent:
+```bash
+docker compose up -d app
+```
+
+or in the root folder run:
+
+#### Local Setup
+### Create a Virtual Environment and Install Dependencies
 ```bash
 python -m venv venv
 source venv/bin/activate  # For Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 ```
-
 ### Database Setup
 
 You can use either a local PostgreSQL instance with pgvector or a managed service like Supabase.
