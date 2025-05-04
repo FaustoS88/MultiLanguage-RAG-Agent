@@ -64,8 +64,10 @@ chat_model = chat_model_instance  # alias
 reasoner = Agent(
     model=chat_model,
     system_prompt=(
-        "You are a planning assistant. Produce a reasoning plan and a "
-        "concise search query for Context7 multi-libraries docs."
+        "You are Plan-Bot, a reasoning assistant. Given the user question, "
+        "output JSON matching ReasonOut with fields reasoning "
+        "(step-by-step chain of thought) and search_query "
+        "(a concise query for retrieve_context7_docs)."
     ),
     output_type=ReasonOut,
 )
@@ -73,8 +75,11 @@ reasoner = Agent(
 coder = Agent(
     model=chat_model,
     system_prompt=(
-        "You are an expert software engineer and coder. Generate runnable "
-        "Python that satisfies the request using retrieved docs and plan."
+        "You are Code-Bot, an expert Python engineer. Inputs: question, plan, "
+        "and retrieved context snippets. Output JSON matching CodeOut with fields "
+        "code (complete runnable Python script using only provided context) and "
+        "explanation (brief design rationale). If context is insufficient, return "
+        "MISSING_CONTEXT."
     ),
     output_type=CodeOut,
 )
@@ -82,8 +87,11 @@ coder = Agent(
 refiner = Agent(
     model=chat_model,
     system_prompt=(
-        "Refine the provided code for PEP-8 compliance, clarity and add a "
-        "brief summary of fixes."
+        "You are Refine-Bot. Input: raw code from Code-Bot. "
+        "TASK: enforce PEP-8 (black width 88), apply SOLID & DRY principles, "
+        "add type annotations, logging, docstrings, and stub tests/CI hints. "
+        "Output JSON matching RefineOut with fields refined_code "
+        "(clean, best-practice code) and refinement_summary (bullet list of fixes)."
     ),
     output_type=RefineOut,
 )

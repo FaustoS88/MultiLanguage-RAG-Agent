@@ -24,8 +24,7 @@ This project provides a comprehensive system for extracting, storing, and queryi
 **Purpose:**  
 Fetches documentation snippets from Context7 llms.txt endpoints, parses them, and stores them in a PostgreSQL database with vector embeddings for similarity search.
 
-**Key Files:**  
-- `context7_extractor.py`: Extracts text snippets and generates embeddings using the OpenAI API (for RAG).  
+**Key Files:**   
 - `init_db.py`: Initializes the PostgreSQL database schema.  
 - `create_context7_docs_table.sql`: SQL script to create the `context7_docs` table with the pgvector extension.  
 - `db_inspect.py`: Utility to inspect and manage stored snippets.
@@ -36,12 +35,12 @@ Fetches documentation snippets from Context7 llms.txt endpoints, parses them, an
 Provides an AI assistant that answers user queries by retrieving relevant documentation snippets and generating answers or runnable code.
 
 **Key Files:**  
-- `context7_agent.py`: Core agent implementation handling environment setup, database connection, retrieval, and AI model integration.  
+- `context7_agent_simple.py`: An optional standalone, simple CLI agent that runs without invoking the LangGraph workflow for fast, direct queries. 
 - `prompts.py`: Contains the system prompt guiding the agent's behavior and workflow.  
 - `context7_chat.py`: Streamlit-based chat UI for interactive querying of the RAG agent with graph-aware capabilities.
 
 **Graph-Aware Options:**  
-- `context7_agent_simple.py`: An optional standalone, simple CLI agent that runs without invoking the LangGraph workflow for fast, direct queries.  
+ - `context7_agent.py`: Core agent implementation handling environment setup, database connection, retrieval, and AI model integration.  
 - `graph_workflow.py`: An LangGraph workflow for multi-step planning, code generation, and refinement. This workflow is automatically invoked by the main agent when deeper reasoning or code execution is required.
 
 ---
@@ -59,7 +58,7 @@ python docker.py
 ```
 then open the streamlit at http://localhost:8501
 
-# Refresh db with new docs
+## Refresh db with new docs
 
 - stop the container with:
 ```bash
@@ -80,7 +79,7 @@ docker compose up -d app
 
 or in the root folder run:
 
-#### Local Setup
+### Local Setup
 ### Create a Virtual Environment and Install Dependencies
 ```bash
 python -m venv venv
