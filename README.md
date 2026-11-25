@@ -1,5 +1,7 @@
 # Context7 Documentation Extractor & RAG Agent
 
+> Archived. I built this project in May 2025 on the per-library llms.txt files that Context7 served at the time. Context7 has since changed that format, so the extractor no longer finds any snippets. On a fresh install the agent no longer starts either: pydantic-ai 0.1.3 accepts any opentelemetry-api from 1.28 up, and releases from 1.44.0 onward drop a module it imports. The code stays here as a record of the design: snippet extraction into Postgres with pgvector, a Pydantic AI agent and a LangGraph workflow that generates Python code, whose human-review step never runs. For a related documentation RAG project, see [Pydantic-AI-Pinescript-Expert](https://github.com/FaustoS88/Pydantic-AI-Pinescript-Expert).
+
 This project provides a comprehensive system for extracting, storing, and querying curated documentation snippets from Context7 library endpoints. It supports Retrieval-Augmented Generation (RAG) workflows by embedding documentation snippets and enabling AI-powered question answering and code generation.
 
 ---
